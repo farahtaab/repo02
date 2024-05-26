@@ -6,6 +6,7 @@ Guía detalla los pasos para crear un repositorio local en tu máquina y cómo c
 
 - **Abrir la Terminal**:
   - Abre la siguiente terminal de git en tu sistema.
+  - 
    ![Imagen](imagenes/imagen3%20(2).png)
 
 - **Navegar al Directorio Deseado**:
