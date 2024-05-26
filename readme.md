@@ -31,4 +31,4 @@ Enunciado ->
 ![imagen5](imagenes/imagen5.png)
 
 
-2.4_ 
+2.4_ Resumen de comandos de git con markdown
