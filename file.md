@@ -91,3 +91,14 @@ Estos comandos nos permiten interactuar con un repositorio remoto, facilitando l
 | ---------------------------------- | -------------------------------------------------------------------- |
 | `git pull`             | Descarga cambios de la rama principal del remoto y los integra.      |
 | `git push origin main`             | Sube los cambios locales a la rama principal del repositorio remoto. |
+
+## Desplazandonos entre commits temporalmente
+
+| Comando                                    | Descripción                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `git log`                                  | Muestra un registro de los commits y el HEAD indica el commit actual.                                         |
+| `HEAD`                                     | Es un puntero que indica el commit actual.                                                                    |
+| `git checkout [hash_del_commit]`           | Sitúa el HEAD en el commit específico indicado por el hash.                                                   |
+| `git log --reflog`                         | Permite ver todos los commits, incluyendo los no alcanzables desde el HEAD.                                   |
+| `git checkout [hash_del_commit]`           | Mueve el HEAD al commit deseado.                                                                              |
+| `git checkout main`                        | Regresa el HEAD a la rama principal (`main`).                                                                 |
