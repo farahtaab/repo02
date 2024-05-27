@@ -45,3 +45,5 @@ A medida que vamos completando nuestro fichero md subimos los cambios poco a poc
   
 ![Imagen6](imagenes/imagen6.png)
 
+### Enlace a resumen de comandos principales de git
+[Resumen de git](file.md)
