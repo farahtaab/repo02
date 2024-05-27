@@ -56,49 +56,74 @@ Guía detalla los pasos para crear un repositorio local en tu máquina y cómo c
 
 Estos pasos te permiten manejar eficientemente la creación y configuración de repositorios en Git y GitHub.
 
-# COMANDOS PRINCIPALES
-
-## Configuración Inicial
-Antes de comenzar a usar Git, es importante configurar nuestra identidad y editor predilecto. Aquí está cómo hacerlo:
-
-| Comando                        | Descripción                                      |
-| ------------------------------ | ------------------------------------------------ |
-| `git config --global user.name "Tu Nombre"` | Configura el nombre que aparecerá en tus commits. |
-| `git config --global user.email "tuemail@example.com"` | Configura el email para tus commits. |
-| `git config --list`                                           | Muestra las configuraciones de Git para verificar cambios. |
-
-## Crear i clonar repositorios
-Ya sea comenzando un proyecto desde cero o colaborando en uno existente, estos comandos son el primer paso.
-| Comando                                               | Descripción                                                        |
-| ----------------------------------------------------- | ------------------------------------------------------------------ |
-| `git init`                                            | Inicializa un nuevo repositorio Git localmente.                    |
-| `git clone https://github.com/usuario/repositorio.git`| Clona un repositorio remoto en tu máquina local para trabajar offline. |
-
-## Gestión de Cambios y Commits
-Estos comandos nos ayudan a gestionar y registrar los cambios en tus proyectos.
-
-| Comando                        | Descripción                                                        |
-| ------------------------------ | ------------------------------------------------------------------ |
-| `git status`                   | Muestra el estado del repositorio, incluyendo cambios no rastreados.|
-| `git add archivo.ext`          | Añade un archivo específico al área de staging.                     |
-| `git add .`                    | Añade todos los archivos modificados al área de staging.            |
-| `git commit -m "mensaje"`      | Realiza un commit con un mensaje explicativo.                       |
-| `git log`                      | Muestra el historial de commits.                                    |
-
-## Sincronización con Repositorios Remotos
-Estos comandos nos permiten interactuar con un repositorio remoto, facilitando la colaboración.
-| Comando                            | Descripción                                                          |
-| ---------------------------------- | -------------------------------------------------------------------- |
-| `git pull`             | Descarga cambios de la rama principal del remoto y los integra.      |
-| `git push origin main`             | Sube los cambios locales a la rama principal del repositorio remoto. |
-
-## Desplazandonos entre commits temporalmente
+# Comandos Básicos de Git
 
 | Comando                                    | Descripción                                                                                                   |
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `git init`                                 | Inicializa un nuevo repositorio de Git.                                                                       |
+| `git clone [url]`                          | Clona un repositorio existente desde la URL especificada.                                                     |
 | `git log`                                  | Muestra un registro de los commits y el HEAD indica el commit actual.                                         |
 | `HEAD`                                     | Es un puntero que indica el commit actual.                                                                    |
-| `git checkout [hash_del_commit]`           | Sitúa el HEAD en el commit específico indicado por el hash.                                                   |
+| `git show`                                 | Muestra los cambios realizados en un commit específico.                                                       |
+
+# Comandos para Navegar entre Commits
+
+| Comando                                    | Descripción                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------|
 | `git log --reflog`                         | Permite ver todos los commits, incluyendo los no alcanzables desde el HEAD.                                   |
-| `git checkout [hash_del_commit]`           | Mueve el HEAD al commit deseado.                                                                              |
+| `git checkout [hash_del_commit]`           | Sitúa el HEAD en el commit específico indicado por el hash.                                                   |
 | `git checkout main`                        | Regresa el HEAD a la rama principal (`main`).                                                                 |
+| `git reset [hash_del_commit]`              | Deshace commits, moviendo el HEAD al commit especificado.                                                     |
+| `git reset --hard [hash_del_commit]`       | Deshace commits y borra todos los cambios en el área de trabajo.                                              |
+
+# Comandos para Trabajar con Ramas
+
+| Comando                                    | Descripción                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `git branch`                               | Muestra las ramas actuales.                                                                                   |
+| `git branch [nombreRama]`                  | Crea una nueva rama con el nombre especificado.                                                               |
+| `git checkout [nombreRama]`                | Cambia a la rama especificada.                                                                                |
+| `git checkout -b [nombreRama]`             | Crea y cambia a una nueva rama con el nombre especificado.                                                    |
+| `git branch -d [nombreRama]`               | Elimina la rama especificada en el repositorio local.                                                         |
+| `git push origin --delete [nombreRama]`    | Elimina la rama especificada en el repositorio remoto.                                                        |
+| `git merge [nombreRama]`                   | Fusiona la rama especificada con la rama actual.                                                              |
+| `git merge --no-ff [nombreRama]`           | Fusiona la rama especificada con la rama actual, creando un nuevo commit de fusión.                           |
+
+# Comandos para Gestionar Archivos
+
+| Comando                                    | Descripción                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `git status`                               | Muestra el estado de los archivos en la rama actual, incluyendo los cambios sin añadir.                       |
+| `git add [archivo]`                        | Añade el archivo especificado al área de staging.                                                             |
+| `git commit -m "[mensaje]"`                | Crea un commit con los cambios añadidos al área de staging, usando el mensaje especificado.                   |
+| `git commit --amend -m "[mensaje]"`        | Modifica el último commit con un nuevo mensaje.                                                               |
+| `git push --set-upstream origin [nombreRama]` | Sube la rama especificada al repositorio remoto y establece el upstream.                                       |
+| `git push`                                 | Sube los commits locales al repositorio remoto.                                                               |
+| `git pull`                                 | Descarga los cambios del repositorio remoto y los fusiona con la rama local actual.                           |
+| `git stash`                                | Guarda los cambios no confirmados para limpiarlos temporalmente del área de trabajo.                          |
+| `git stash apply`                          | Aplica los cambios guardados con `git stash`.                                                                 |
+| `git stash pop`                            | Aplica los cambios guardados con `git stash` y los elimina de la lista de stashes.                            |
+| `git stash list`                           | Muestra la lista de cambios guardados con `git stash`.                                                        |
+| `git revert [hash_del_commit]`             | Crea un nuevo commit que deshace los cambios del commit especificado.                                          |
+
+# Comandos para Gestionar Remotos
+
+| Comando                                    | Descripción                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `git remote`                               | Muestra los repositorios remotos configurados.                                                                |
+| `git remote add [nombre] [url]`            | Añade un nuevo repositorio remoto con el nombre y la URL especificados.                                        |
+| `git fetch [nombre]`                       | Descarga los cambios desde el repositorio remoto especificado.                                                |
+| `git pull [nombre] [rama]`                 | Descarga los cambios desde el repositorio remoto y rama especificados, y los fusiona con la rama actual.       |
+| `git push [nombre] [rama]`                 | Sube los commits locales a la rama especificada del repositorio remoto.                                        |
+
+# Comandos para Etiquetas (Tags)
+
+| Comando                                    | Descripción                                                                                                   |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------------|
+| `git tag`                                  | Muestra la lista de etiquetas en el repositorio.                                                              |
+| `git tag [nombre_etiqueta]`                | Crea una nueva etiqueta ligera con el nombre especificado.                                                    |
+| `git tag -a [nombre_etiqueta] -m "[mensaje]"` | Crea una nueva etiqueta anotada con el nombre y mensaje especificados.                                         |
+| `git push origin [nombre_etiqueta]`        | Sube la etiqueta especificada al repositorio remoto.                                                          |
+| `git push origin --tags`                   | Sube todas las etiquetas al repositorio remoto.                                                               |
+| `git tag -d [nombre_etiqueta]`             | Elimina la etiqueta especificada localmente.                                                                  |
+| `git push origin :refs/tags/[nombre_etiqueta]` | Elimina la etiqueta especificada en el repositorio remoto.                                                     |
